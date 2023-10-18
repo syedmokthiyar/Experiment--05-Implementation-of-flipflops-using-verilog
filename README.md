@@ -138,6 +138,33 @@ qbar<=~q;
 end
 endmodule
 
+T FlipFlop:
+module T(T,clk,Q,Qbar);
+input T,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(T&(~Q))|((~T)&Q);
+Qbar=((~T)&Qbar)|(T&(~Qbar));
+end
+endmodule
+
+D FlipFlop:
+module D(D,clk,Q,Qbar);
+input D,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=D;
+Qbar=~D;
+end
+endmodule
 ```
 
 ### RTL LOGIC FOR FLIPFLOPS 
@@ -145,12 +172,12 @@ endmodule
 ![Screenshot 2023-09-16 091851](https://github.com/syedmokthiyar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118787294/12c77454-b714-4dee-9afd-b2c5a4915e59)
 
 # JK Flip-Flop
-
 ![jk rtl](https://github.com/syedmokthiyar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118787294/00175616-e891-4bac-9529-1309e6c1a665)
+# T Flip flop
+![t image](https://github.com/syedmokthiyar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118787294/7d437ba7-e6da-4eb3-a732-f8a5c4516545)
 
-
-
-
+# D flip flop
+![272805519-cb743de4-a4fc-4174-9af1-501dc08f2ed9](https://github.com/syedmokthiyar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118787294/9196b803-00f6-4f6c-b2ef-688873042373)
 
 
 
@@ -161,6 +188,11 @@ endmodule
 # JK Flip-Flop
 ![jk flip flop waveform](https://github.com/syedmokthiyar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118787294/2b5b5036-104e-4740-b82b-66f283cf7420)
 
+# T Flip flop
+![t outout](https://github.com/syedmokthiyar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118787294/1fb92820-cbe7-4b04-8476-8a694e47778b)
 
+# D flip flop
+![d outout](https://github.com/syedmokthiyar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118787294/47a30681-5c0e-41f1-af3a-26fc662b5b6e)
 
 ### RESULTS 
+Thus ,all the flipflops using verilog and validating their functionality using their functional tables are successfully executed.
